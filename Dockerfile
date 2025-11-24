@@ -42,7 +42,7 @@ RUN apt-get update && apt-get upgrade -y && \
     chmod a+r /etc/apt/keyrings/docker.asc && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
     apt-get update && \
-    apt-get install -y --no-install-recommends docker-ce-cli docker-compose-plugin \
+    apt-get install -y --no-install-recommends docker-ce-cli docker-compose-plugin docker-compose \
     # agents
     && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt install -y nodejs \
@@ -166,6 +166,9 @@ RUN apt-get update && apt-get install -y cargo && \
     mkdir -p /root/.config/dijo /root/.local/share/dijo && \
     echo "[]" > /root/.local/share/dijo/dijo.json
 
+RUN mkdir -p ~/.config/dijo && \
+    echo '{"habits": [{"name": "task1", "description": "Daily exercise"}, {"name": "task2", "description": "Read 30 minutes"}]}' > ~/.config/dijo/config.json
+
 ENV TERM=xterm-256color
 
 # 3. ZSH Configuration & Aliases
@@ -180,7 +183,7 @@ RUN echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc && \
     echo "alias du='dust'" >> ~/.zshrc && \
     echo "alias df='duf'" >> ~/.zshrc && \
     echo "alias ps='procs'" >> ~/.zshrc && \
-    echo "alias ping='gping'" >> ~/.zshrc && \
+    # echo "alias ping='gping'" >> ~/.zshrc && \
     echo "alias top='btop'" >> ~/.zshrc && \
     echo "alias tree='broot'" >> ~/.zshrc && \
     echo "alias rm='trash-put'" >> ~/.zshrc

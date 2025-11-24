@@ -31,13 +31,24 @@ wAgents/
 │   │   └── 📄 test_library_scan.py       # Dependencies with known CVEs
 │   ├── 📁 quality/                        # Code quality issue examples
 │   │   └── 📄 test_quality_check.py       # Code with quality issues
+│   ├── 📁 yolo/                           # YOLO AI/ML examples
+│   │   ├── 📁 person detection detection.v2i.yolov11/  # Person detection dataset
+│   │   │   ├── 📁 train/               # Training images & labels
+│   │   │   ├── 📁 valid/               # Validation images & labels
+│   │   │   ├── 📁 test/                # Test images & labels
+│   │   │   └── 📄 data.yaml            # Dataset configuration
+│   │   ├── 📄 train_yolo.py              # YOLO training example
+│   │   ├── 📄 validate_yolo.py           # YOLO validation example
+│   │   ├── 📄 test_yolo.py               # YOLO testing example
+│   │   └── 📄 inference_yolo.py          # YOLO inference example
 │   └── 📁 other/                          # General development examples
 │       └── 📄 test_other_tools.py         # Code with style issues
 ├── 📁 requirements/                        # Python dependencies
 │   ├── 📄 base.txt                        # Core development tools
-│   ├── 📄 dvc.txt                         # Data version control
-│   ├── 📄 security.txt                    # Security scanning tools
-│   └── 📄 see_image_terminal.txt          # Terminal image viewing
+│   ├── 📄 dvc.txt                    # Data version control
+│   ├── 📄 security.txt               # Security scanning tools
+│   ├── 📄 yolo.txt                   # AI/ML object detection tools
+│   └── 📄 see_image_terminal.txt     # Terminal image viewing
 ├── 📁 scripts/                             # Automation scripts
 │   ├── 📁 executor/                       # Runtime execution scripts
 │   │   ├── 📁 security/                  # Security scanning scripts
@@ -77,25 +88,45 @@ graph TB
     F --> I[Security Tools]
     F --> J[Quality Tools]
     F --> K[Development Tools]
+    F --> L[AI/ML Tools]
     
-    I --> L[Bandit Scanner]
-    I --> M[Safety Scanner]
+    I --> M[Bandit Scanner]
+    I --> N[Safety Scanner]
     
-    J --> N[Ruff Linter]
-    J --> O[Pre-commit Hooks]
+    J --> O[Ruff Linter]
+    J --> P[Pre-commit Hooks]
     
-    K --> P[DVC]
-    K --> Q[AI Agents]
-    K --> R[Image Viewers]
+    K --> Q[DVC]
+    K --> R[AI Agents]
+    K --> S[Image Viewers]
     
-    L --> S[Security Reports]
-    M --> S
-    N --> T[Quality Reports]
-    O --> T
+    L --> T[Ultralytics YOLO]
+    L --> U[PyTorch]
+    L --> V[OpenCV]
+    L --> W[Person Detection Dataset]
     
-    S --> U[Fixed Code]
-    T --> U
-    U --> V[Production Ready]
+    M --> X[Security Reports]
+    N --> X
+    O --> Y[Quality Reports]
+    P --> Y
+    Q --> Z[Data Management]
+    R --> AA[AI Assistant]
+    S --> BB[Image Processing]
+    T --> CC[Object Detection]
+    U --> CC
+    V --> CC
+    W --> CC
+    
+    X --> DD[Fixed Code]
+    Y --> DD
+    Z --> EE[Versioned Data]
+    AA --> DD
+    BB --> DD
+    CC --> FF[Trained Models]
+    
+    DD --> GG[Production Ready]
+    EE --> GG
+    FF --> GG
 ```
 
 ## 🚶‍♂️ Diagram Walkthrough
@@ -113,6 +144,7 @@ flowchart TD
     Choice -->|Quality| QualityPath[Quality Workflow]
     Choice -->|Development| DevPath[Development Workflow]
     Choice -->|Data| DataPath[Data Workflow]
+    Choice -->|AI/ML| YoloPath[Person Detection Workflow]
     
     SecurityPath --> SecScan[Run Security Scan]
     SecScan --> SecReport[Review Security Report]
@@ -130,10 +162,18 @@ flowchart TD
     DVCInit --> DVCData[Manage Data]
     DVCData --> DVCPush[Push to Remote]
     
+    YoloPath --> YoloDataset[Load Person Dataset]
+    YoloDataset --> YoloTrain[Train Person Detection]
+    YoloTrain --> YoloVal[Validate Model]
+    YoloVal --> YoloTest[Test Performance]
+    YoloTest --> YoloInf[Run Inference]
+    YoloInf --> YoloReal[Real-time Detection]
+    
     SecFix --> Review[Code Review]
     QualFix --> Review
     DevReload --> Review
     DVCPush --> Review
+    YoloReal --> Review
     
     Review --> Deploy[Deploy to Production]
     Deploy --> End([End])
@@ -183,6 +223,19 @@ pandas          # Data manipulation
 dvc             # Data version control
 boto3           # AWS SDK for Python
 tqdm            # Progress bars
+```
+
+#### AI/ML Tools (`requirements/yolo.txt`)
+```
+ultralytics     # YOLO object detection framework
+torch           # PyTorch deep learning framework
+torchvision     # Computer vision utilities
+opencv-python   # Computer vision library
+Pillow          # Image processing
+numpy           # Numerical computing
+matplotlib      # Plotting and visualization
+seaborn         # Statistical visualization
+tensorboard     # ML experiment tracking
 ```
 
 ### 3. Script Categories
@@ -254,6 +307,55 @@ cd python/examples/quality
 # - Unused variables
 # - Import organization
 # - Code formatting issues
+```
+
+### YOLO AI/ML Testing
+
+```bash
+# Install YOLO dependencies
+pip install -r requirements/yolo.txt
+
+# Test YOLO training on person detection dataset
+cd python/examples/yolo
+python train_yolo.py
+
+# Test YOLO validation on trained model
+python validate_yolo.py
+
+# Test YOLO testing and benchmarking
+python test_yolo.py
+
+# Test YOLO inference (single image)
+python inference_yolo.py --image "python/examples/yolo/person detection detection.v2i.yolov11/test/images/ektp30_jpeg.rf.d8df759f943f1b0edf4bf8829ff61533.jpg"
+
+# Test YOLO inference (batch on dataset samples)
+python inference_yolo.py --samples 10
+
+# Test YOLO real-time inference
+python inference_yolo.py --camera 0
+
+# Dataset info:
+# - Dataset: Person Detection v2 (YOLOv11 format)
+# - Classes: ['Face'] (1 class)
+# - Train/Val/Test split available
+# - Real images with person annotations
+```
+
+### Development Workflow
+
+```bash
+# Auto-reload development server
+cd /app
+./scripts/executor/auto_reload_py.sh
+
+# View images in terminal
+./scripts/executor/images/see_imagen_with_sixel.py path/to/image.jpg
+
+# Use productivity aliases
+ls          # Enhanced listing with icons
+ll          # Detailed listing
+cd myproject # Smart directory jumping
+grep "pattern" . # Fast search with ripgrep
 ```
 
 ### Development Workflow
@@ -350,6 +452,70 @@ Add to `Dockerfile` in the ZSH configuration section:
 RUN echo "alias mycommand='my-actual-command'" >> ~/.zshrc
 ```
 
+## 🔄 Container Lifecycle
+
+### Build Process
+
+```mermaid
+graph LR
+    A[Host Files] --> B[COPY requirements]
+    B --> C[/requirements/]
+    A --> D[COPY scripts]
+    D --> E[/scripts/]
+    A --> F[COPY python]
+    F --> G[/python_test/]
+    C --> H[Install Python Packages]
+    E --> I[Configure Scripts]
+    G --> J[Setup Examples]
+    H --> K[Install AI/ML Tools]
+    I --> K
+    J --> K
+    K --> L[Final Container]
+    
+    subgraph "AI/ML Components"
+        M[Ultralytics YOLO]
+        N[PyTorch]
+        O[OpenCV]
+        P[Person Detection Dataset]
+    end
+    
+    H --> M
+    H --> N
+    H --> O
+    J --> P
+```
+
+### Runtime Process
+
+```mermaid
+graph TB
+    A[Container Start] --> B[WORKDIR: /app]
+    B --> C[Mount Host Volume]
+    C --> D[Zsh Shell Ready]
+    D --> E[Tools Available]
+    E --> F[Scripts at /scripts/]
+    E --> G[Examples at /python_test/]
+    E --> H[Project at /app/]
+    E --> I[AI/ML Environment]
+    F --> J[Welcome Script]
+    G --> J
+    H --> J
+    I --> J
+    J --> K[Ready for Development]
+    
+    subgraph "AI/ML Runtime"
+        L[Person Detection Dataset]
+        M[GPU Acceleration]
+        N[Model Training]
+        O[Real-time Inference]
+    end
+    
+    I --> L
+    I --> M
+    I --> N
+    I --> O
+```
+
 ## 🚀 Deployment
 
 ### Production Deployment
@@ -377,21 +543,13 @@ jobs:
       - uses: actions/checkout@v3
       - name: Security Scan
         run: ./scripts/executor/security/scan_code_vulnerability.sh
-      - name: Quality Check
+      - name: Check Dependencies
+        run: ./scripts/executor/security/scan_libraries_vulnerability.sh
+      - name: Check Code Quality
         run: ./scripts/executor/quality/correct_quality_py.sh
+      - name: Test YOLO Training
+        run: cd python/examples/yolo && python train_yolo.py
 ```
-
-## 🤝 Contributing
-
-1. **Fork the repository**
-2. **Create feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make changes and test**:
-   ```bash
-   ./scripts/executor/security/scan_code_vulnerability.sh
-   ./scripts/executor/quality/correct_quality_py.sh
-   ```
-4. **Commit changes**: `git commit -m 'Add amazing feature'`
-5. **Push and create PR**
 
 ## 📞 Support
 
