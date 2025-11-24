@@ -1,0 +1,34 @@
+services:
+  agent:
+    build: .
+    image: wisrovi/agents:gpu-slim
+    volumes:
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.ssh:/root/.ssh:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+        limits:
+          cpus: '6.0'
+          memory: 16g
+    stdin_open: true
+    tty: true
+    shm_size: 16g
+    privileged: true
+    hostname: wAgent
+    restart: unless-stopped
+    init: true
+    tmpfs:
+    - /tmp
+    - /run
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"

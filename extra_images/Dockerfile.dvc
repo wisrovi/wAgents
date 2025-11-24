@@ -1,0 +1,4 @@
+FROM wisrovi/agents:gpu-slim
+
+RUN /scripts/install/dvc_controller.sh
+

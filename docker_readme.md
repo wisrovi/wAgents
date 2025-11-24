@@ -5,6 +5,8 @@
 ![CUDA](https://img.shields.io/badge/CUDA-12.0-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+[Original repo](https://github.com/wisrovi/wAgents)
+
 A comprehensive Docker-based development environment specifically designed for AI agent development, equipped with GPU acceleration, security tools, code quality assurance, and a rich set of development utilities.
 
 ## 🎯 What's Inside This Container
@@ -73,232 +75,6 @@ Container: wAgents/
 ├── 📁 /scripts/                          # Container scripts (build-time copy)
 ├── 📁 /python_test/                      # Test Python files (build-time copy)
 └── 📁 /root/                             # Home directory with Zsh config
-```
-
-## 🔄 System Architecture
-
-```mermaid
-graph TB
-    A[Developer] --> B[Docker Compose]
-    B --> C[wAgents Container]
-    C --> D[Zsh Shell at root]
-    C --> E[GPU Support]
-    C --> F[Python Environment]
-    
-    D --> G[Welcome Script]
-    D --> H[Zsh Aliases Plugins]
-    
-    F --> I[Security Tools]
-    F --> J[Quality Tools]
-    F --> K[Development Tools]
-    F --> L[AI/ML Tools]
-    
-    I --> M[Bandit Scanner]
-    I --> N[Safety Scanner]
-    
-    J --> O[Ruff Linter]
-    J --> P[Pre-commit Hooks]
-    
-    K --> Q[DVC]
-    K --> R[AI Agents]
-    K --> S[Image Viewers]
-    
-    L --> T[Ultralytics YOLO]
-    L --> U[PyTorch]
-    L --> V[OpenCV]
-    L --> W[Person Detection Dataset]
-    
-    M --> X[Security Reports]
-    N --> X
-    O --> Y[Quality Reports]
-    P --> Y
-    Q --> Z[Data Management]
-    R --> AA[AI Assistant]
-    S --> BB[Image Processing]
-    T --> CC[Object Detection]
-    U --> CC
-    V --> CC
-    W --> CC
-    
-    X --> DD[Fixed Code]
-    Y --> DD
-    Z --> EE[Versioned Data]
-    AA --> DD
-    BB --> DD
-    CC --> FF[Trained Models]
-    
-    DD --> GG[Production Ready]
-    EE --> GG
-    FF --> GG
-```
-
-## 🏗️ Complete Architecture Overview
-
-```mermaid
-graph TB
-    subgraph "One Command Deployment"
-        A["docker-compose up --build"]
-    end
-    
-    subgraph "Instant Environment Ready"
-        B["wAgents Container<br/>GPU + CUDA 12.0"]
-    end
-    
-    subgraph "Complete Tool Suite Pre-Installed"
-        C[Security Stack]
-        D[Quality Stack]
-        E[Development Stack]
-        F[Productivity Stack]
-        G[AI/ML Stack]
-    end
-    
-    subgraph "Security Tools"
-        C1[Bandit<br/>Security Linter]
-        C2[Safety<br/>Dependency Scanner]
-        C3[Scapy<br/>Packet Analysis]
-        C4[Py-spy<br/>Profiler]
-    end
-    
-    subgraph "Quality Tools"
-        D1[Ruff<br/>Linter & Formatter]
-        D2[Pre-commit<br/>Git Hooks]
-        D3[Black<br/>Code Formatter]
-        D4[isort<br/>Import Sorter]
-    end
-    
-    subgraph "Development Tools"
-        E1[DVC<br/>Data Version Control]
-        E2[Pandas<br/>Data Manipulation]
-        E3[Boto3<br/>AWS SDK]
-        E4[IPython<br/>Enhanced REPL]
-        E5[Nvitop<br/>GPU Monitor]
-    end
-    
-    subgraph "Productivity Tools"
-        F1[Zsh Oh My Zsh<br/>Enhanced Shell]
-        F2[Exa Ripgrep Fd<br/>Modern Unix Tools]
-        F3[Btop Procs<br/>System Monitoring]
-        F4[Broot Zoxide<br/>Smart Navigation]
-        F5[Lazydocker<br/>Docker Management]
-    end
-    
-    subgraph "AI/ML Tools"
-        G1[Ultralytics<br/>YOLO Framework]
-        G2[PyTorch<br/>Deep Learning]
-        G3[OpenCV<br/>Computer Vision]
-        G4[Person Detection<br/>Real Dataset]
-        G5[TensorBoard<br/>ML Tracking]
-    end
-    
-    subgraph "Time Savings vs Manual Setup"
-        H["3 Hours Saved<br/>No Installation Required"]
-        I["Zero Configuration<br/>Everything Just Works"]
-        J["Production Ready<br/>Best Practices Included"]
-    end
-    
-    subgraph "What You Get Instantly"
-        K["Secure Code<br/>Automated Scanning"]
-        L["Clean Code<br/>Auto-formatting"]
-        M["GPU Acceleration<br/>ML AI Ready"]
-        N["Data Management<br/>Version Control"]
-        O["Professional Workflow<br/>Industry Standards"]
-        P["Object Detection<br/>Person Detection Ready"]
-    end
-    
-    A --> B
-    B --> C
-    B --> D
-    B --> E
-    B --> F
-    B --> G
-    
-    C --> C1
-    C --> C2
-    C --> C3
-    C --> C4
-    
-    D --> D1
-    D --> D2
-    D --> D3
-    D --> D4
-    
-    E --> E1
-    E --> E2
-    E --> E3
-    E --> E4
-    E --> E5
-    
-    F --> F1
-    F --> F2
-    F --> F3
-    F --> F4
-    F --> F5
-    
-    G --> G1
-    G --> G2
-    G --> G3
-    G --> G4
-    G --> G5
-    
-    B --> H
-    B --> I
-    B --> J
-    
-    H --> K
-    I --> L
-    J --> M
-    J --> N
-    J --> O
-    J --> P
-```
-
-## 🚶‍♂️ Container Workflow
-
-```mermaid
-flowchart TD
-    Start([Container Start]) --> Setup[Environment Ready]
-    Setup --> Zsh[Zsh Shell at root]
-    Zsh --> Welcome[Welcome Script]
-    
-    Welcome --> Choice{What do you want to do?}
-    
-    Choice -->|Security| SecurityPath[Security Workflow]
-    Choice -->|Quality| QualityPath[Quality Workflow]
-    Choice -->|Development| DevPath[Development Workflow]
-    Choice -->|Data| DataPath[Data Workflow]
-    Choice -->|AI/ML| YoloPath[Person Detection Workflow]
-    
-    SecurityPath --> SecScan[Security Scan Script]
-    SecScan --> SecReport[Review Security Report]
-    SecReport --> SecFix[Fix Vulnerabilities]
-    
-    QualityPath --> QualCheck[Quality Check Script]
-    QualCheck --> QualReport[Review Quality Report]
-    QualReport --> QualFix[Fix Quality Issues]
-    
-    DevPath --> DevCode[Write Code in app]
-    DevCode --> DevTest[Test Code]
-    DevTest --> DevReload[Auto Reload Script]
-    
-    DataPath --> DVCInit[Initialize DVC]
-    DVCInit --> DVCData[Manage Data]
-    DVCData --> DVCPush[Push to Remote]
-    
-    YoloPath --> YoloDataset[Load Person Dataset]
-    YoloDataset --> YoloTrain[Train Person Detection]
-    YoloTrain --> YoloVal[Validate Model]
-    YoloVal --> YoloTest[Test Performance]
-    YoloTest --> YoloInf[Run Inference]
-    YoloInf --> YoloReal[Real-time Detection]
-    
-    SecFix --> Review[Code Review]
-    QualFix --> Review
-    DevReload --> Review
-    DVCPush --> Review
-    YoloReal --> Review
-    
-    Review --> Deploy[Deploy to Production]
-    Deploy --> End([End])
 ```
 
 ## 🏗️ Container Environment
@@ -741,3 +517,91 @@ apt-get update && apt-get install -y htop tree
 **Built with ❤️ for the AI Agent development community**
 
 *This guide focuses on what you'll find inside the container once it's built and running.*
+
+
+
+
+## to use
+
+### alias
+
+```
+alias wisrovi="docker run --rm --hostname wAgent --init -i -t --shm-size 16g --cpus 6.0 --memory 16g --gpus all --log-opt max-size=50m -e TZ=Europe/Madrid -v "$(pwd)":/app -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ssh:/root/.ssh:ro wisrovi/agents:gpu-slim zsh"
+```
+
+### temporal container
+
+```
+docker run \
+  --rm \
+  --hostname wAgent \
+  --init \
+  -i -t \
+  --shm-size 16g \
+  --cpus 6.0 \
+  --memory 16g \
+  --gpus all \
+  --log-opt max-size=50m \
+  -e TZ=Europe/Madrid \
+  -v "$(pwd)":/app \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/.ssh:/root/.ssh:ro \
+  wisrovi/agents:gpu-slim \
+  zsh
+```
+
+### perpetual coontainer
+
+```
+docker run -d \
+  --name wisrovi-agent-gpu \
+  --hostname wAgent \
+  --restart unless-stopped \
+  --init \
+  -i -t \
+  --shm-size 16g \
+  --cpus 6.0 \
+  --memory 16g \
+  --gpus all \
+  --log-opt max-size=50m \
+  -e TZ=Europe/Madrid \
+  -v "$(pwd)":/app \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/.ssh:/root/.ssh:ro \
+  wisrovi/agents:gpu-slim
+```
+
+### docker-compose
+
+```
+services:
+  agents:
+    image: wisrovi/agents:gpu-slim
+    volumes:
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.ssh:/root/.ssh:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+        limits:
+          cpus: '6.0'
+          memory: 16g
+    stdin_open: true
+    tty: true
+    shm_size: 16g
+    hostname: wAgent
+    restart: unless-stopped
+    init: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+```
