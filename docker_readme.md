@@ -70,12 +70,12 @@ Container: wAgents/
 graph TB
     A[Developer] --> B[Docker Compose]
     B --> C[wAgents Container]
-    C --> D[Zsh Shell at /root]
+    C --> D[Zsh Shell at root]
     C --> E[GPU Support]
     C --> F[Python Environment]
     
-    D --> G[/scripts/welcome.sh]
-    D --> H[Zsh Aliases & Plugins]
+    D --> G[Welcome Script]
+    D --> H[Zsh Aliases Plugins]
     
     F --> I[Security Tools]
     F --> J[Quality Tools]
@@ -105,36 +105,36 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "🚀 One Command Deployment"
+    subgraph "One Command Deployment"
         A["docker-compose up --build"]
     end
     
-    subgraph "⚡ Instant Environment Ready"
+    subgraph "Instant Environment Ready"
         B["wAgents Container<br/>GPU + CUDA 12.0"]
     end
     
-    subgraph "🛠️ Complete Tool Suite (Pre-Installed)"
-        C[🔒 Security Stack]
-        D[✨ Quality Stack]
-        E[📊 Development Stack]
-        F[🎯 Productivity Stack]
+    subgraph "Complete Tool Suite Pre-Installed"
+        C[Security Stack]
+        D[Quality Stack]
+        E[Development Stack]
+        F[Productivity Stack]
     end
     
-    subgraph "🔒 Security Tools"
+    subgraph "Security Tools"
         C1[Bandit<br/>Security Linter]
         C2[Safety<br/>Dependency Scanner]
         C3[Scapy<br/>Packet Analysis]
         C4[Py-spy<br/>Profiler]
     end
     
-    subgraph "✨ Quality Tools"
+    subgraph "Quality Tools"
         D1[Ruff<br/>Linter & Formatter]
         D2[Pre-commit<br/>Git Hooks]
         D3[Black<br/>Code Formatter]
         D4[isort<br/>Import Sorter]
     end
     
-    subgraph "📊 Development Tools"
+    subgraph "Development Tools"
         E1[DVC<br/>Data Version Control]
         E2[Pandas<br/>Data Manipulation]
         E3[Boto3<br/>AWS SDK]
@@ -142,26 +142,26 @@ graph TB
         E5[Nvitop<br/>GPU Monitor]
     end
     
-    subgraph "🎯 Productivity Tools"
-        F1[Zsh + Oh My Zsh<br/>Enhanced Shell]
-        F2[Exa + Ripgrep + Fd<br/>Modern Unix Tools]
-        F3[Btop + Procs<br/>System Monitoring]
-        F4[Broot + Zoxide<br/>Smart Navigation]
+    subgraph "Productivity Tools"
+        F1[Zsh Oh My Zsh<br/>Enhanced Shell]
+        F2[Exa Ripgrep Fd<br/>Modern Unix Tools]
+        F3[Btop Procs<br/>System Monitoring]
+        F4[Broot Zoxide<br/>Smart Navigation]
         F5[Lazydocker<br/>Docker Management]
     end
     
-    subgraph "⏱️ Time Savings vs Manual Setup"
-        G["⏰ 2+ Hours Saved<br/>No Installation Required"]
-        H["🔧 Zero Configuration<br/>Everything Just Works"]
-        I["🎯 Production Ready<br/>Best Practices Included"]
+    subgraph "Time Savings vs Manual Setup"
+        G["2 Hours Saved<br/>No Installation Required"]
+        H["Zero Configuration<br/>Everything Just Works"]
+        I["Production Ready<br/>Best Practices Included"]
     end
     
-    subgraph "🎯 What You Get Instantly"
-        J["✅ Secure Code<br/>Automated Scanning"]
-        K["✅ Clean Code<br/>Auto-formatting"]
-        L["✅ GPU Acceleration<br/>ML/AI Ready"]
-        M["✅ Data Management<br/>Version Control"]
-        N["✅ Professional Workflow<br/>Industry Standards"]
+    subgraph "What You Get Instantly"
+        J["Secure Code<br/>Automated Scanning"]
+        K["Clean Code<br/>Auto-formatting"]
+        L["GPU Acceleration<br/>ML AI Ready"]
+        M["Data Management<br/>Version Control"]
+        N["Professional Workflow<br/>Industry Standards"]
     end
     
     A --> B
@@ -208,8 +208,8 @@ graph TB
 ```mermaid
 flowchart TD
     Start([Container Start]) --> Setup[Environment Ready]
-    Setup --> Zsh[Zsh Shell at /root]
-    Zsh --> Welcome[/scripts/welcome.sh]
+    Setup --> Zsh[Zsh Shell at root]
+    Zsh --> Welcome[Welcome Script]
     
     Welcome --> Choice{What do you want to do?}
     
@@ -218,17 +218,17 @@ flowchart TD
     Choice -->|Development| DevPath[Development Workflow]
     Choice -->|Data| DataPath[Data Workflow]
     
-    SecurityPath --> SecScan[/scripts/executor/security/scan_code_vulnerability.sh]
+    SecurityPath --> SecScan[Security Scan Script]
     SecScan --> SecReport[Review Security Report]
     SecReport --> SecFix[Fix Vulnerabilities]
     
-    QualityPath --> QualCheck[/scripts/executor/quality/correct_quality_py.sh]
+    QualityPath --> QualCheck[Quality Check Script]
     QualCheck --> QualReport[Review Quality Report]
     QualReport --> QualFix[Fix Quality Issues]
     
-    DevPath --> DevCode[Write Code in /app]
+    DevPath --> DevCode[Write Code in app]
     DevCode --> DevTest[Test Code]
-    DevTest --> DevReload[/scripts/executor/auto_reload_py.sh]
+    DevTest --> DevReload[Auto Reload Script]
     
     DataPath --> DVCInit[Initialize DVC]
     DVCInit --> DVCData[Manage Data]
@@ -441,11 +441,11 @@ btop                               # System monitor
 ```mermaid
 graph LR
     A[Host Files] --> B[COPY requirements]
-    B --> C[/requirements/]
+    B --> C[requirements]
     A --> D[COPY scripts]
-    D --> E[/scripts/]
+    D --> E[scripts]
     A --> F[COPY python]
-    F --> G[/python_test/]
+    F --> G[python_test]
     C --> H[Install Python Packages]
     E --> I[Configure Scripts]
     G --> J[Setup Examples]
@@ -458,13 +458,13 @@ graph LR
 
 ```mermaid
 graph TB
-    A[Container Start] --> B[WORKDIR: /app]
+    A[Container Start] --> B[WORKDIR app]
     B --> C[Mount Host Volume]
     C --> D[Zsh Shell Ready]
     D --> E[Tools Available]
-    E --> F[Scripts at /scripts/]
-    E --> G[Examples at /python_test/]
-    E --> H[Project at /app/]
+    E --> F[Scripts at scripts]
+    E --> G[Examples at python_test]
+    E --> H[Project at app]
     F --> I[Welcome Script]
     G --> I
     H --> I
