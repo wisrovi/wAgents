@@ -30,12 +30,23 @@ Container: wAgents/
 │   │   │   └── 📄 test_library_scan.py  # Dependencies with known CVEs
 │   │   ├── 📁 quality/                   # Code quality issue examples
 │   │   │   └── 📄 test_quality_check.py # Code with quality issues
+│   │   ├── 📁 yolo/                      # YOLO AI/ML examples
+│   │   │   ├── 📁 person detection detection.v2i.yolov11/  # Person detection dataset
+│   │   │   │   ├── 📁 train/               # Training images & labels
+│   │   │   │   ├── 📁 valid/               # Validation images & labels
+│   │   │   │   ├── 📁 test/                # Test images & labels
+│   │   │   │   └── 📄 data.yaml            # Dataset configuration
+│   │   │   ├── 📄 train_yolo.py         # YOLO training example
+│   │   │   ├── 📄 validate_yolo.py      # YOLO validation example
+│   │   │   ├── 📄 test_yolo.py          # YOLO testing example
+│   │   │   └── 📄 inference_yolo.py     # YOLO inference example
 │   │   └── 📁 other/                     # General development examples
 │   │       └── 📄 test_other_tools.py    # Code with style issues
 │   ├── 📁 requirements/                  # Python dependencies
 │   │   ├── 📄 base.txt                   # Core development tools
 │   │   ├── 📄 dvc.txt                    # Data version control
 │   │   ├── 📄 security.txt               # Security scanning tools
+│   │   ├── 📄 yolo.txt                   # AI/ML object detection tools
 │   │   └── 📄 see_image_terminal.txt     # Terminal image viewing
 │   ├── 📁 scripts/                       # Automation scripts
 │   │   ├── 📁 executor/                  # Runtime execution scripts
@@ -80,25 +91,45 @@ graph TB
     F --> I[Security Tools]
     F --> J[Quality Tools]
     F --> K[Development Tools]
+    F --> L[AI/ML Tools]
     
-    I --> L[Bandit Scanner]
-    I --> M[Safety Scanner]
+    I --> M[Bandit Scanner]
+    I --> N[Safety Scanner]
     
-    J --> N[Ruff Linter]
-    J --> O[Pre-commit Hooks]
+    J --> O[Ruff Linter]
+    J --> P[Pre-commit Hooks]
     
-    K --> P[DVC]
-    K --> Q[AI Agents]
-    K --> R[Image Viewers]
+    K --> Q[DVC]
+    K --> R[AI Agents]
+    K --> S[Image Viewers]
     
-    L --> S[Security Reports]
-    M --> S
-    N --> T[Quality Reports]
-    O --> T
+    L --> T[Ultralytics YOLO]
+    L --> U[PyTorch]
+    L --> V[OpenCV]
+    L --> W[Person Detection Dataset]
     
-    S --> U[Fixed Code]
-    T --> U
-    U --> V[Production Ready]
+    M --> X[Security Reports]
+    N --> X
+    O --> Y[Quality Reports]
+    P --> Y
+    Q --> Z[Data Management]
+    R --> AA[AI Assistant]
+    S --> BB[Image Processing]
+    T --> CC[Object Detection]
+    U --> CC
+    V --> CC
+    W --> CC
+    
+    X --> DD[Fixed Code]
+    Y --> DD
+    Z --> EE[Versioned Data]
+    AA --> DD
+    BB --> DD
+    CC --> FF[Trained Models]
+    
+    DD --> GG[Production Ready]
+    EE --> GG
+    FF --> GG
 ```
 
 ## 🏗️ Complete Architecture Overview
@@ -118,6 +149,7 @@ graph TB
         D[Quality Stack]
         E[Development Stack]
         F[Productivity Stack]
+        G[AI/ML Stack]
     end
     
     subgraph "Security Tools"
@@ -150,18 +182,27 @@ graph TB
         F5[Lazydocker<br/>Docker Management]
     end
     
+    subgraph "AI/ML Tools"
+        G1[Ultralytics<br/>YOLO Framework]
+        G2[PyTorch<br/>Deep Learning]
+        G3[OpenCV<br/>Computer Vision]
+        G4[Person Detection<br/>Real Dataset]
+        G5[TensorBoard<br/>ML Tracking]
+    end
+    
     subgraph "Time Savings vs Manual Setup"
-        G["2 Hours Saved<br/>No Installation Required"]
-        H["Zero Configuration<br/>Everything Just Works"]
-        I["Production Ready<br/>Best Practices Included"]
+        H["3 Hours Saved<br/>No Installation Required"]
+        I["Zero Configuration<br/>Everything Just Works"]
+        J["Production Ready<br/>Best Practices Included"]
     end
     
     subgraph "What You Get Instantly"
-        J["Secure Code<br/>Automated Scanning"]
-        K["Clean Code<br/>Auto-formatting"]
-        L["GPU Acceleration<br/>ML AI Ready"]
-        M["Data Management<br/>Version Control"]
-        N["Professional Workflow<br/>Industry Standards"]
+        K["Secure Code<br/>Automated Scanning"]
+        L["Clean Code<br/>Auto-formatting"]
+        M["GPU Acceleration<br/>ML AI Ready"]
+        N["Data Management<br/>Version Control"]
+        O["Professional Workflow<br/>Industry Standards"]
+        P["Object Detection<br/>Person Detection Ready"]
     end
     
     A --> B
@@ -169,6 +210,7 @@ graph TB
     B --> D
     B --> E
     B --> F
+    B --> G
     
     C --> C1
     C --> C2
@@ -192,15 +234,22 @@ graph TB
     F --> F4
     F --> F5
     
-    B --> G
+    G --> G1
+    G --> G2
+    G --> G3
+    G --> G4
+    G --> G5
+    
     B --> H
     B --> I
+    B --> J
     
-    G --> J
     H --> K
     I --> L
-    I --> M
-    I --> N
+    J --> M
+    J --> N
+    J --> O
+    J --> P
 ```
 
 ## 🚶‍♂️ Container Workflow
@@ -217,6 +266,7 @@ flowchart TD
     Choice -->|Quality| QualityPath[Quality Workflow]
     Choice -->|Development| DevPath[Development Workflow]
     Choice -->|Data| DataPath[Data Workflow]
+    Choice -->|AI/ML| YoloPath[Person Detection Workflow]
     
     SecurityPath --> SecScan[Security Scan Script]
     SecScan --> SecReport[Review Security Report]
@@ -234,10 +284,18 @@ flowchart TD
     DVCInit --> DVCData[Manage Data]
     DVCData --> DVCPush[Push to Remote]
     
+    YoloPath --> YoloDataset[Load Person Dataset]
+    YoloDataset --> YoloTrain[Train Person Detection]
+    YoloTrain --> YoloVal[Validate Model]
+    YoloVal --> YoloTest[Test Performance]
+    YoloTest --> YoloInf[Run Inference]
+    YoloInf --> YoloReal[Real-time Detection]
+    
     SecFix --> Review[Code Review]
     QualFix --> Review
     DevReload --> Review
     DVCPush --> Review
+    YoloReal --> Review
     
     Review --> Deploy[Deploy to Production]
     Deploy --> End([End])
@@ -300,6 +358,11 @@ dvc --version             # Data version control
 pandas --version          # Data manipulation
 boto3 --version           # AWS SDK
 
+# AI/ML tools
+ultralytics --version     # YOLO object detection
+python -c "import torch"  # PyTorch framework
+python -c "import cv2"     # OpenCV computer vision
+
 # Development tools
 ipython                   # Enhanced Python REPL
 nvitop                    # GPU process monitoring
@@ -316,7 +379,9 @@ watchdog                  # File system monitoring
 | `/scripts/executor/quality/` | Quality tools | Code quality scripts |
 | `/python_test` | Test Python files copy | Python examples copied during build |
 | `/python_test/examples/` | Test examples | Code with intentional issues |
+| `/python_test/examples/yolo/` | YOLO examples | AI/ML object detection examples |
 | `/requirements` | Requirements copy | Requirements files copied during build |
+| `/requirements/yolo.txt` | YOLO dependencies | AI/ML object detection tools |
 | `/root/.zshrc` | Shell configuration | Aliases, plugins, settings |
 | `/root/.oh-my-zsh/` | Zsh framework | Plugins and themes |
 
@@ -373,6 +438,40 @@ cd /python_test/examples/quality
 # >> test_quality_check.py:6:1: E501 Line too long (85 > 88)
 # >> test_quality_check.py:9:1: F841 Unused variable 'unused_var'
 # >> Fixed 2 issues
+```
+
+### YOLO AI/ML Testing
+
+```bash
+# Install YOLO dependencies
+pip install -r /requirements/yolo.txt
+
+# Navigate to YOLO examples
+cd /python_test/examples/yolo
+
+# Test YOLO training on person detection dataset
+python train_yolo.py
+
+# Test YOLO validation on trained model
+python validate_yolo.py
+
+# Test YOLO testing and benchmarking
+python test_yolo.py
+
+# Test YOLO inference (single image from dataset)
+python inference_yolo.py --image "/python_test/examples/yolo/person detection detection.v2i.yolov11/test/images/ektp30_jpeg.rf.d8df759f943f1b0edf4bf8829ff61533.jpg"
+
+# Test YOLO inference (batch on dataset samples)
+python inference_yolo.py --samples 10
+
+# Test YOLO real-time inference
+python inference_yolo.py --camera 0
+
+# Dataset info:
+# - Dataset: Person Detection v2 (YOLOv11 format)
+# - Classes: ['Face'] (1 class)
+# - Train/Val/Test split available
+# - Real images with person annotations
 ```
 
 ### Development Workflow
@@ -449,9 +548,22 @@ graph LR
     C --> H[Install Python Packages]
     E --> I[Configure Scripts]
     G --> J[Setup Examples]
-    H --> K[Final Container]
+    H --> K[Install AI/ML Tools]
     I --> K
     J --> K
+    K --> L[Final Container]
+    
+    subgraph "AI/ML Components"
+        M[Ultralytics YOLO]
+        N[PyTorch]
+        O[OpenCV]
+        P[Person Detection Dataset]
+    end
+    
+    H --> M
+    H --> N
+    H --> O
+    J --> P
 ```
 
 ### Runtime Process
@@ -465,10 +577,24 @@ graph TB
     E --> F[Scripts at scripts]
     E --> G[Examples at python_test]
     E --> H[Project at app]
-    F --> I[Welcome Script]
-    G --> I
-    H --> I
-    I --> J[Ready for Development]
+    E --> I[AI/ML Environment]
+    F --> J[Welcome Script]
+    G --> J
+    H --> J
+    I --> J
+    J --> K[Ready for Development]
+    
+    subgraph "AI/ML Runtime"
+        L[Person Detection Dataset]
+        M[GPU Acceleration]
+        N[Model Training]
+        O[Real-time Inference]
+    end
+    
+    I --> L
+    I --> M
+    I --> N
+    I --> O
 ```
 
 ## 🐛 Container Troubleshooting

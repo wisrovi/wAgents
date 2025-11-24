@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['Face']
+
+roboflow:
+  workspace: bharath-bc3d8
+  project: person-detection-detection
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/bharath-bc3d8/person-detection-detection/dataset/2

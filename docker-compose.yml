@@ -2,6 +2,7 @@ services:
   agent:
     image: wisrovi/agents:gpu-slim
     build: .
+    shm_size: 16gb
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ~/.ssh:/root/.ssh:ro
