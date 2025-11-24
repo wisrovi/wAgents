@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:wordDocument xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:body>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Title"/>
+            </w:pPr>
+            <w:r>
+                <w:t>wAgents: AI Agent Development Environment</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Subtitle"/>
+            </w:pPr>
+            <w:r>
+                <w:t>Comprehensive Docker-based Development Platform for Modern AI Applications</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading1"/>
+            </w:pPr>
+            <w:r>
+                <w:t>INSTANT BOOTSTRAP - ONE COMMAND TO RULE THEM ALL</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading2"/>
+            </w:pPr>
+            <w:r>
+                <w:t>Copy and Paste This Alias:</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>alias wisrovi="docker run --rm --hostname wAgent --init -i -t --shm-size=16g --cpus 6.0 --memory 16g --gpus all --log-opt max-size=50m -e TZ=Europe/Madrid -v \"$(pwd)\":/app -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ssh:/root/.ssh:ro wisrovi/agents:gpu-slim zsh"</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading2"/>
+            </w:pPr>
+            <w:r>
+                <w:t>Then simply run: wisrovi</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading1"/>
+            </w:pPr>
+            <w:r>
+                <w:t>WHAT YOU GET INSTANTLY:</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• GPU Acceleration - CUDA 12.0 ready</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Security Tools - Bandit, Safety scanners</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Code Quality - Ruff, pre-commit hooks</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• AI/ML Stack - YOLO, PyTorch, OpenCV</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Productivity - Zsh, 20+ dev tools</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Data Management - DVC with S3 support</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading1"/>
+            </w:pPr>
+            <w:r>
+                <w:t>WHY THIS IS GAME-CHANGER:</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Zero Setup Time - No environment configuration</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Consistent Everywhere - Same setup on any machine</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Production Ready - Battle-tested configuration</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Resource Optimized - 16GB RAM, 6 CPUs, full GPU</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• Security First - Built-in vulnerability scanning</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>• AI Optimized - Ready for ML workloads</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading1"/>
+            </w:pPr>
+            <w:r>
+                <w:t>THAT'S IT! YOU'RE READY TO BUILD AI AGENTS!</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>The rest of this documentation explains what you now have at your fingertips...</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading1"/>
+            </w:pPr>
+            <w:r>
+                <w:t>Author: Wisrovi Rodriguez</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>Version: 1.0</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>Date: November 24, 2025</w:t>
+            </w:r>
+        </w:p>
+    </w:body>
+</w:wordDocument>

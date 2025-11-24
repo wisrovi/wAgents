@@ -1,18 +1,30 @@
 services:
   agent:
+    build: 
+      context: .
+      dockerfile: Dockerfile
     image: wisrovi/agents:gpu-slim
-    build: .
-    shm_size: 16gb
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ~/.ssh:/root/.ssh:ro
-      - ./:/app
-    tty: true
-    stdin_open: true
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [ gpu ]
+    
+  dvc:
+    build: 
+      context: extra_images
+      dockerfile: Dockerfile.dvc
+    image: wisrovi/agents:gpu-slim-dvc
+    depends_on:
+      - agent
+  
+  yolo:
+    build: 
+      context: extra_images
+      dockerfile: Dockerfile.yolo
+    image: wisrovi/agents:gpu-slim-yolo
+    depends_on:
+      - agent
+  
+  complete:
+    build: 
+      context: extra_images
+      dockerfile: Dockerfile.complete
+    image: wisrovi/agents:gpu
+    depends_on:
+      - agent

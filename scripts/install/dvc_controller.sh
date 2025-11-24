@@ -1,2 +1,2 @@
-pip install --break-system-packages -r /requirements/dvc.txt
-pip install --break-system-packages "dvc[s3]"
+pip install -r /requirements/dvc.txt
+pip install "dvc[s3]"

@@ -11,8 +11,15 @@ build:
 
 # Levantar el contenedor
 start:
-	docker-compose up -d --build
+	docker-compose up agent -d --build
+	docker-compose up dvc -d --build
+	docker-compose up yolo -d --build
+	docker-compose up complete -d --build
+	docker-compose down
 	docker push wisrovi/agents:gpu-slim
+	docker push wisrovi/agents:gpu-slim-dvc
+	docker push wisrovi/agents:gpu-slim-yolo
+	docker push wisrovi/agents:gpu
 
 # Bajar el contenedor
 stop:

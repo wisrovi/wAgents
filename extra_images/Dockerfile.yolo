@@ -1,0 +1,13 @@
+FROM wisrovi/agents:gpu-slim
+SHELL ["/bin/bash", "-c"]
+
+# Instalar ffmpeg directamente en el Dockerfile
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y ffmpeg
+
+# Ejecutar script para otras dependencias  
+RUN /scripts/install/images_control.sh
+
+# Instalar requisitos Python
+RUN pip install --no-cache-dir -r /requirements/see_image_terminal.txt
+RUN pip install --no-cache-dir -r /requirements/yolo.txt

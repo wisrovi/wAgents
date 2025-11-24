@@ -5,6 +5,8 @@
 ![CUDA](https://img.shields.io/badge/CUDA-12.0-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+[Original repo](https://github.com/wisrovi/wAgents)
+
 A comprehensive Docker-based development environment specifically designed for AI agent development, equipped with GPU acceleration, security tools, code quality assurance, and a rich set of development utilities.
 
 ## 🎯 Project Overview
