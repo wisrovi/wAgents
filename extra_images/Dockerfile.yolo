@@ -9,5 +9,6 @@ RUN apt-get update && \
 RUN /scripts/install/images_control.sh
 
 # Instalar requisitos Python
+RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 RUN pip install --no-cache-dir -r /requirements/see_image_terminal.txt
 RUN pip install --no-cache-dir -r /requirements/yolo.txt
