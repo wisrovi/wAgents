@@ -1,8 +1,0 @@
-bandit
-safety
-httpie
-visidata
-scapy
-glances
-py-spy
-pre-commit

@@ -1,3 +1,0 @@
-FROM wisrovi/agents:gpu-slim
-
-RUN /scripts/install/other_agents.sh
